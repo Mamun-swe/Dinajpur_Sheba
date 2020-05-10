@@ -1,0 +1,115 @@
+.sidebar .nav-item .nav-link {
+    padding: 7px 16px;
+}
+
+.text-black {
+    color: #000;
+}
+
+p {
+    font-size: 14px;
+}
+
+.form-control {
+    height: 43px;
+    font-size: 14px;
+}
+
+.submit-btn {
+    height: 43px;
+}
+
+.select2-selection__rendered {
+    line-height: 40px !important;
+}
+
+.select2-container .select2-selection--single {
+    height: 43px !important;
+    border-radius: 0 !important;
+    border: 1px solid #dfdfdf !important;
+}
+
+.select2-selection__arrow {
+    height: 40px !important;
+}
+
+/* Seller Show */
+
+.seller-show i {
+    font-size: 15px;
+}
+
+/* Seller Products */
+
+.product_card .img-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.product_card .img-box img {
+    min-height: 100%;
+}
+
+.product_card .img-box .options {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.438);
+}
+
+.product_card .img-box .options .btn {
+    font-size: 13px;
+    height: 35px;
+    width: 35px;
+    padding-left: 10px;
+    transition: 0.3s;
+    color: #0e275b;
+    float: left;
+    background: #fff;
+}
+
+.product_card .img-box .options .btn:hover {
+    color: #fff;
+    background: #0e275b;
+}
+
+.product_edit .btn {
+    height: 45px;
+    background: #0e275b;
+}
+
+@media(max-width: 576px) {
+    .product_card .img-box {
+        height: 100px;
+    }
+}
+
+@media(min-width: 576px) {
+    .product_card .img-box {
+        height: 120px;
+    }
+}
+
+@media(min-width: 992px) {
+    .product_card .img-box {
+        height: 150px;
+    }
+}
+
+@media(min-width: 1480px) {
+    .product_card .img-box {
+        height: 180px;
+    }
+}
+
+/* End Seller Products */
+
+/* Order */
+
+.orders .order_card {
+    border: 0;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+/* End Order */
