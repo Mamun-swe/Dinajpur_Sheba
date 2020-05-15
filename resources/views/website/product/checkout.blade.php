@@ -4,7 +4,7 @@
 <div class="checkout py-4">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-6 m-auto">
+            <div class="col-12 col-lg-8 m-auto">
                 <div class="card rounded-0">
                     <div class="card-header p-4 text-center bg-white">
                         <h5 class="mb-0"><b>অর্ডার চেকআউট</b></h5>
@@ -83,10 +83,20 @@
                                 @else 
                                     <small class="text-dark">পণ্যের পরিমাণ</small>
                                 @endif
-                                <input type="number" name="quantity" min="1" class="form-control rounded-0 shadow-none">
+                                <input type="number" id="quantity" name="quantity" min="1" class="form-control rounded-0 shadow-none">
                             </div>
 
-                            <button type="submit" class="btn btn-warning text-dark rounded-0 shadow-sm btn-block">অর্ডার কনফার্ম করুন</button>
+                            <div class="d-flex bg-white p-2">
+                                <div>
+                                    <p id="core_price" style="display: none;">{{$product_price->price_per_unit}}</p>
+                                    <h5 class="mb-0">মোট টাকার পরিমাণঃ <span id="unit_price"></span></h5>
+                                </div>
+                                <div class="ml-auto">
+                                    <button type="submit" class="btn btn-warning text-dark rounded-0 shadow-sm btn-block">অর্ডার কনফার্ম করুন</button>
+                                </div>
+                            </div>
+
+                            
 
                         </form>
                     </div>
@@ -95,5 +105,15 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        var total = 0;
+        $('#quantity').keyup(function(){
+            total = $('#core_price').text() * $('#quantity').val();
+            $('#unit_price').html(total)
+        })
+    })
+</script>
 
 @endsection

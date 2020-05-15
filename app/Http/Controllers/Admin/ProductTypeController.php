@@ -37,8 +37,8 @@ class ProductTypeController extends Controller
      */
     public function store(Request $request)
     {
-        ProductType::create($request->all());
-        return redirect()->back();
+        // ProductType::create($request->all());
+        // return redirect()->back();
     }
 
     /**
@@ -60,8 +60,8 @@ class ProductTypeController extends Controller
      */
     public function edit($id)
     {
-        $data = ProductType::find($id);
-        return view('admin.product-type.edit', compact('data'));
+        // $data = ProductType::find($id);
+        // return view('admin.product-type.edit', compact('data'));
     }
 
     /**
@@ -73,14 +73,14 @@ class ProductTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'product_type_name' => 'required'
-        ]);
-        $form_data = array(
-            'product_type_name' => $request->product_type_name
-        );
-        ProductType::where('id', '=', $id)->update($form_data);
-        return redirect()->route('admin.product-type.index');
+        // $request->validate([
+        //     'product_type_name' => 'required'
+        // ]);
+        // $form_data = array(
+        //     'product_type_name' => $request->product_type_name
+        // );
+        // ProductType::where('id', '=', $id)->update($form_data);
+        // return redirect()->route('admin.product-type.index');
     }
 
     /**

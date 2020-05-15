@@ -48,7 +48,8 @@ class WebsiteController extends Controller
     public function checkout($id){
         $productid = $id;
         $location = Location::where('user_id', '=', Auth()->User()->id)->first();
-        return view('website.product.checkout', compact('productid', 'location'));
+        $product_price = Product::select('price_per_unit')->where('id', '=', $id)->first();
+        return view('website.product.checkout', compact('productid', 'location', 'product_price'));
     }
 
     public function orderSubmit(Request $request){

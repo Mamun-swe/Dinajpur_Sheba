@@ -8,7 +8,7 @@
                 <div class="card rounded-0 shadow-sm border-0">
                     <div class="card-header bg-white py-4">
                         <h5 class="mb-4">Product types</h5>
-                        <div>
+                        <!-- <div>
                             <form action="{{route('admin.product-type.store')}}" method="post">
                                 @csrf
                                 <div class="input-group mb-0">
@@ -18,7 +18,7 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="card-body p-4">
                         <ol class="m-0 pl-3">
@@ -27,7 +27,7 @@
                                 <div class="d-flex">
                                     <div><p class="mb-0">{{$types->product_type_name}}</p></div>
                                     <div class="ml-auto">
-                                        <a href="{{route('admin.product-type.edit', $types->id)}}" class="btn btn-sm btn-light rounded-0 shadow-none text-info"><i class="fas fa-pen"></i></a>
+                                        <!-- <a href="{{route('admin.product-type.edit', $types->id)}}" class="btn btn-sm btn-light rounded-0 shadow-none text-info"><i class="fas fa-pen"></i></a> -->
                                     </div>
                                 </div>
                             </li>

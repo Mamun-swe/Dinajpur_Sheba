@@ -86,7 +86,7 @@
       <div class="overlay"></div>
     </div>
     <div class="carousel-item">
-      <img src="{{asset('images/slider/2.jpeg')}}" alt="Second slide">
+      <img src="{{asset('images/slider/2.jpg')}}" alt="Second slide">
       <div class="overlay"></div>
     </div>
     <div class="carousel-item">

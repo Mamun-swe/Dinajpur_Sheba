@@ -48,11 +48,11 @@
         <span>Loading Point</span></a>
     </li>
 
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="{{route('admin.product-type.index')}}">
         <i class="fab fa-product-hunt"></i>
         <span>Product Type</span></a>
-    </li>
+    </li> -->
 
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.product.create')}}">
