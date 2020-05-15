@@ -8,7 +8,12 @@
             <div class="col-12 col-md-8 col-lg-6 m-auto">
                 <div class="card rounded-0">
                     <div class="card-header rounded-0 border-0 p-4 text-center">
-                        <h5 class="mb-0">লগইন</h5>
+                        
+                        <div class="d-flex justify-content-between">
+                            <div><a href="{{route('home')}}"><img src="{{asset('images/static/back.png')}}" alt=""></a></div>
+                            <div><h5 class="mb-0">লগইন</h5></div>
+                            <div></div>
+                        </div>
                     </div>
                     <div class="card-body pb-5">
                         @if(Session::has('error'))
