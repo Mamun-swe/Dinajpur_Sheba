@@ -29,9 +29,7 @@ class ProductController extends Controller
     public function create()
     {
         $sellers = Seller::select('id', 'phone')->get();
-        $productTypes = ProductType::orderBy('id', 'DESC')->get();
-        $loadingPoints = LoadingPoint::orderBy('id', 'DESC')->get();
-        return view('admin.product.create', compact('sellers', 'productTypes', 'loadingPoints'));
+        return view('admin.product.create', compact('sellers'));
     }
 
     /**
@@ -44,8 +42,9 @@ class ProductController extends Controller
     {
         $rules = [
             'seller_id' => 'required',
-            'product_type_id' => 'required',
-            'loading_point_id' => 'required',
+            'product_type' => 'required',
+            'category' => 'required',
+            'loading_point' => 'required',
             'stock_quantity' => 'required',
             'price_per_unit' => 'required',
             'product_info' => 'required',
@@ -60,8 +59,9 @@ class ProductController extends Controller
   
         Product::create([
             'seller_id' => $request['seller_id'],
-            'product_type_id' => $request['product_type_id'],
-            'loading_point_id' => $request['loading_point_id'],
+            'product_type' => $request['product_type'],
+            'category' => $request['category'],
+            'loading_point' => $request['loading_point'],
             'stock_quantity' => $request['stock_quantity'],
             'price_per_unit' => $request['price_per_unit'],
             'product_info' => $request['product_info'],
@@ -80,19 +80,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $data = Product::join('product_types', 'product_types.id', '=', 'products.product_type_id')
-                    ->join('loading_points', 'loading_points.id', '=', 'products.loading_point_id')
-                    ->where('products.id', '=', $id)
-                    ->select(
-                        'products.id', 
-                        'products.stock_quantity', 
-                        'products.price_per_unit', 
-                        'products.product_image',
-                        'products.product_info',
-                        'product_types.product_type_name', 
-                        'loading_points.loading_point'
-                    )
-                    ->first();
+        $data = Product::where('products.id', '=', $id)->first();
         return view('admin.product.show', compact('data'));
     }
 
@@ -104,22 +92,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $productTypes = ProductType::orderBy('id', 'DESC')->get();
-        $loadingPoints = LoadingPoint::orderBy('id', 'DESC')->get();
-        $data = Product::join('product_types', 'product_types.id', '=', 'products.product_type_id')
-                    ->join('loading_points', 'loading_points.id', '=', 'products.loading_point_id')
-                    ->where('products.id', '=', $id)
-                    ->select(
-                        'products.id', 
-                        'products.stock_quantity', 
-                        'products.price_per_unit', 
-                        'products.product_image',
-                        'products.product_info',
-                        'product_types.product_type_name', 
-                        'loading_points.loading_point'
-                    )
-                    ->first();
-        return view('admin.product.edit', compact('data', 'productTypes', 'loadingPoints'));
+        $data = Product::where('products.id', '=', $id)->first();
+        return view('admin.product.edit', compact('data'));
     }
 
     /**
@@ -132,8 +106,8 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'product_type_id' => 'required',
-            'loading_point_id' => 'required',
+            'product_type' => 'required',
+            'loading_point' => 'required',
             'stock_quantity' => 'required',
             'price_per_unit' => 'required',
             'product_info' => 'required',
@@ -141,8 +115,8 @@ class ProductController extends Controller
         $this->validate($request,$rules);
 
         $form_data = array(
-            'product_type_id' => $request->product_type_id,
-            'loading_point_id' => $request->loading_point_id,
+            'product_type' => $request->product_type,
+            'loading_point' => $request->loading_point,
             'stock_quantity' => $request->stock_quantity,
             'price_per_unit' => $request->price_per_unit,
             'product_info' => $request->product_info

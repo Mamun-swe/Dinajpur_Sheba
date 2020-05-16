@@ -42,17 +42,6 @@
         <span>Buyer List</span></a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.loading-point.index')}}">
-        <i class="fas fa-truck"></i>
-        <span>Loading Point</span></a>
-    </li>
-
-    <!-- <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.product-type.index')}}">
-        <i class="fab fa-product-hunt"></i>
-        <span>Product Type</span></a>
-    </li> -->
 
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.product.create')}}">

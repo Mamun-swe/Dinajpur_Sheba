@@ -14,42 +14,21 @@ class WebsiteController extends Controller
     }
 
     public function products(){
-        $products = Product::join('product_types', 'product_types.id', '=', 'products.product_type_id')
-                    ->join('loading_points', 'loading_points.id', '=', 'products.loading_point_id')
-                    ->where('products.status', '=', 1)
-                    ->select(
-                        'products.id', 
-                        'products.stock_quantity', 
-                        'products.price_per_unit', 
-                        'products.product_image', 
-                        'product_types.product_type_name'
-                    )
-                    ->orderBy('products.id', 'DESC')->paginate(30);
-        return view('website.product.index', compact('products'));
+        $lichiall = Product::where('status', '=', 1)->where('product_type', '=', 'lichi')->orderBy('id', 'DESC')->take(3)->get();
+        $mangoall = Product::where('status', '=', 1)->where('product_type', '=', 'mango')->orderBy('id', 'DESC')->take(3)->get();
+        $vegitableall = Product::where('status', '=', 1)->where('product_type', '=', 'vegitables')->orderBy('id', 'DESC')->take(3)->get();
+        return view('website.product.index', compact('lichiall', 'mangoall', 'vegitableall'));
     }
 
     public function productShow($id){
-        $data = Product::join('product_types', 'product_types.id', '=', 'products.product_type_id')
-                ->join('loading_points', 'loading_points.id', '=', 'products.loading_point_id')
-                ->where('products.id', '=', $id)
-                ->select(
-                    'products.id', 
-                    'products.stock_quantity', 
-                    'products.price_per_unit', 
-                    'products.product_image',
-                    'products.product_info',
-                    'product_types.product_type_name', 
-                    'loading_points.loading_point'
-                )
-                ->first();
+        $data = Product::where('products.id', '=', $id)->first();
         return view('website.product.show', compact('data'));
     }
 
     public function checkout($id){
         $productid = $id;
-        $location = Location::where('user_id', '=', Auth()->User()->id)->first();
-        $product_price = Product::select('price_per_unit')->where('id', '=', $id)->first();
-        return view('website.product.checkout', compact('productid', 'location', 'product_price'));
+        $product = Product::where('id', '=', $id)->first();
+        return view('website.product.checkout', compact('productid', 'product'));
     }
 
     public function orderSubmit(Request $request){

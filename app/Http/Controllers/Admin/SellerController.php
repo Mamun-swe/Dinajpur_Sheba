@@ -63,18 +63,8 @@ class SellerController extends Controller
     public function show($id)
     {
         $data = Seller::find($id);
-        $myProducts = Product::join('product_types', 'product_types.id', '=', 'products.product_type_id')
-                    ->join('loading_points', 'loading_points.id', '=', 'products.loading_point_id')
-                    ->where('products.seller_id', '=', $id)
+        $myProducts = Product::where('products.seller_id', '=', $id)
                     ->where('products.status', '=', 1)
-                    ->select(
-                        'products.id', 
-                        'products.stock_quantity', 
-                        'products.price_per_unit', 
-                        'products.product_image', 
-                        'product_types.product_type_name', 
-                        'loading_points.loading_point'
-                    )
                     ->orderBy('products.id', 'DESC')->paginate(12);
         return view('admin.seller.show', compact('data', 'myProducts'));
     }

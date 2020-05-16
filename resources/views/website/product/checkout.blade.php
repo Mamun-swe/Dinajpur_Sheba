@@ -43,12 +43,7 @@
                                 @else 
                                     <small class="text-dark">পাঠানোর ঠিকানা</small>
                                 @endif
-                                
-                                @if($location)
-                                    <input type="text" name="location" class="form-control rounded-0 shadow-none" value="{{$location->location}}">
-                                @else
-                                    <input type="text" name="location" class="form-control rounded-0 shadow-none">
-                                @endif
+                                <input type="text" name="location" class="form-control rounded-0 shadow-none">
                             </div>
 
                             <div class="form-group mb-3">
@@ -88,7 +83,7 @@
 
                             <div class="d-flex bg-white p-2">
                                 <div>
-                                    <p id="core_price" style="display: none;">{{$product_price->price_per_unit}}</p>
+                                    <p id="core_price" style="display: none;">{{$product->price_per_unit}}</p>
                                     <h5 class="mb-0">মোট টাকার পরিমাণঃ <span id="unit_price"></span></h5>
                                 </div>
                                 <div class="ml-auto">

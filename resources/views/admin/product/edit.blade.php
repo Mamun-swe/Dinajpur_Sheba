@@ -18,34 +18,27 @@
                         
                             <!-- Type -->
                             <div class="form-group">
-                                @if($errors->has('product_type_id'))
+                                @if($errors->has('product_type'))
                                     <label><p class="mb-0"><i class="fab fa-product-hunt p-2 bg-danger text-white mr-2"></i><span class="text-danger">Product Type Required</span></p></label>
                                 @else 
                                     <label><p class="mb-0"><i class="fab fa-product-hunt p-2 bg-success text-white mr-2"></i>Product Type</p></label>
                                 @endif
-
-                                <select name="product_type_id" class="form-control rounded-0 shadow-none select2" style="width: 100%;">
+                                <select name="product_type" class="form-control rounded-0 shadow-none select2" style="width: 100%;">
                                     <option value="" selected>Select product type</option>
-                                    @foreach($productTypes as $types)
-                                        <option value="{{$types->id}}">{{$types->product_type_name}}</option>
-                                    @endforeach
+                                    <option value="mango">আম</option>
+                                    <option value="lichi">লিচু</option>
+                                    <option value="vegitables">শাক-সবজি</option>
                                 </select>
                             </div>
 
                             <!-- Loading Point -->
                             <div class="form-group">
-                                @if($errors->has('loading_point_id'))
+                                @if($errors->has('loading_point'))
                                     <label><p class="mb-0"><i class="fas fa-map-marker-alt bg-danger text-white mr-2" style="padding: 9px 11px;"></i><span class="text-danger">Loading Point Required</span></p></label>
                                 @else 
                                     <label><p class="mb-0"><i class="fas fa-map-marker-alt bg-success text-white mr-2" style="padding: 9px 11px;"></i>Loading Point</p></label>
                                 @endif
-                                
-                                <select name="loading_point_id" class="form-control rounded-0 shadow-none select2" style="width: 100%;">
-                                    <option value="" selected>Select loading point</option>
-                                    @foreach($loadingPoints as $point)
-                                        <option value="{{$point->id}}">{{$point->loading_point}}</option>
-                                    @endforeach
-                                </select>
+                                <input type="text" name="loading_point" class="form-control rounded-0 shadow-none" value="{{$data->loading_point}}">
                             </div>
 
                             <!-- Stock Quantity -->
