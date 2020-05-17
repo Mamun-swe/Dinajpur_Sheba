@@ -89,6 +89,7 @@ class AuthController extends Controller
         $form_data = array(
             'password' => Hash::make($request['password']),
         );
+        
 
         $user = User::where('phone', '=', $request->phone)
                 ->where('account_type', '!=', 'admin')
