@@ -90,9 +90,11 @@ class AuthController extends Controller
             'password' => Hash::make($request['password']),
         );
 
-        $user = User::where('phone', '=', $request->phone)->first();
+        $user = User::where('phone', '=', $request->phone)
+                ->where('account_type', '!=', 'admin')
+                ->first();
         if($user){
-            User::where('phone', '=', $request->phone)->update($form_data);
+            User::where('phone', '=', $request->phone)->where('account_type', '!=', 'admin')->update($form_data);
             return redirect()->back()->with('success', 'পাসওয়ার্ড পরিবর্তন হয়েছে ।');
         }else{
             return redirect()->back()->with('error', 'মোবাইল নাম্বার সঠিক নয় ।');
