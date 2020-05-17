@@ -25,9 +25,9 @@
                                 @endif
                                 <select name="product_type" class="form-control rounded-0 shadow-none select2" style="width: 100%;">
                                     <option value="" selected>Select product type</option>
-                                    <option value="mango">আম</option>
-                                    <option value="lichi">লিচু</option>
-                                    <option value="vegitables">শাক-সবজি</option>
+                                    <option value="আম">আম</option>
+                                    <option value="লিচু">লিচু</option>
+                                    <option value="শাক-সবজি">শাক-সবজি</option>
                                 </select>
                             </div>
 

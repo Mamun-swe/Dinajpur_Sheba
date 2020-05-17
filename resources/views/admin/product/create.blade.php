@@ -40,11 +40,11 @@
                                     <label><p class="mb-0"><i class="fab fa-product-hunt p-2 bg-success text-white mr-2"></i>Product Type</p></label>
                                 @endif
 
-                                <select name="product_type" class="form-control rounded-0 shadow-none select2" style="width: 100%;">
+                                <select name="product_type" id="product_type" class="form-control rounded-0 shadow-none select2" style="width: 100%;">
                                     <option value="" selected>Select product type</option>
-                                    <option value="mango">আম</option>
-                                    <option value="lichi">লিচু</option>
-                                    <option value="vegitables">শাক-সবজি</option>
+                                    <option value="আম">আম</option>
+                                    <option value="লিচু">লিচু</option>
+                                    <option value="শাক-সবজি">শাক-সবজি</option>
                                 </select>
                             </div>
 
@@ -84,7 +84,7 @@
                                 @if($errors->has('price_per_unit'))
                                     <label><p class="mb-0"><i class="fas fa-dollar-sign bg-danger text-white mr-2" style="padding: 9px 11px;"></i><span class="text-danger">Price Per Unit Required</span></p></label>
                                 @else 
-                                    <label><p class="mb-0"><i class="fas fa-dollar-sign bg-success text-white mr-2" style="padding: 9px 11px;"></i>Price Per Unit</p></label>
+                                    <label><p class="mb-0"><i class="fas fa-dollar-sign bg-success text-white mr-2" style="padding: 9px 11px;"></i><span id="price_msg"></span></p></label>
                                 @endif
                                 
                                 <input type="text" name="price_per_unit" min="1" class="form-control rounded-0 shadow-none" placeholder="Enter price per unit">
@@ -123,5 +123,20 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $('#product_type').change(function() {
+        if($('#product_type').val() == 'আম'){
+            $('#price_msg').html('দাম মণ প্রতি')
+        }else if($('#product_type').val() == 'লিচু'){
+            $('#price_msg').html('দাম হাজার প্রতি')
+        }else if($('#product_type').val() == 'শাক-সবজি'){
+            $('#price_msg').html('দাম ইউনিট প্রতি')
+        }else{
+            $('#price_msg').html('দাম ইউনিট প্রতি')
+        }
+    });
+</script>
 
 @endsection

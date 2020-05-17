@@ -29,11 +29,11 @@
                             <div class="pl-3 pt-1">
                                 <h5>
                                     <b>
-                                        @if($product->product_type == 'mango')
+                                        @if($product->product_type == 'আম')
                                             আম
-                                        @elseif($product->product_type == 'lichi')
+                                        @elseif($product->product_type == 'লিচু')
                                             লিচু
-                                        @elseif($product->product_type == 'vegitables')
+                                        @elseif($product->product_type == 'শাক-সবজি')
                                             শাক-সবজি
                                         @endif
                                     </b>

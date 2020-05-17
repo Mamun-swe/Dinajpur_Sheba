@@ -4,7 +4,7 @@
 <div class="product-show pb-4">
 
     <!-- Slider -->
-    @if($data->product_type == 'mango')
+    @if($data->product_type == 'আম')
     <div id="carouselExampleIndicators" class="carousel slide mb-4" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    @elseif($data->product_type == 'lichi')
+    @elseif($data->product_type == 'লিচু')
     <div id="carouselExampleIndicators" class="carousel slide mb-4" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -48,7 +48,7 @@
             </div>
         </div>
     </div>
-    @elseif($data->product_type == 'vegitables')
+    @elseif($data->product_type == 'শাক-সবজি')
     <div id="carouselExampleIndicators" class="carousel slide mb-4" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -82,16 +82,18 @@
             <div class="col-12 col-lg-4 py-4">
                 <p class="mb-3"><span class="rounded px-2 py-1 bg-danger text-white">পণ্যের কোডঃ {{$data->id}}</span></p>
                 <h6 class="mb-2"><b>পণ্যের ধরণ 
-                @if($data->product_type == 'mango')
-                    আম
-                @elseif($data->product_type == 'lichi')
-                    লিচু
-                @elseif($data->product_type == 'vegitables')
-                    শাক-সবজি
-                @endif
+                {{$data->product_type}}
                 <p class="mb-0"><span class="text-dark">পণ্যের জাতঃ</span> {{$data->category}}</p>
                 </b></h6>
-                <p class="text-primary mb-1">৳ {{$data->price_per_unit}}.00 প্রতি ইউনিট</p>
+                <p class="text-primary mb-1">৳ {{$data->price_per_unit}}.00 
+                    @if($data->product_type == 'আম')
+                        প্রতি মণ
+                    @elseif($data->product_type == 'লিচু')
+                        প্রতি হাজার
+                    @elseif($data->product_type == 'শাক-সবজি')
+                        প্রতি ইউনিট
+                    @endif
+                </p>
                 <p class="text-danger mb-3">স্টক {{$data->stock_quantity}} পিস</p>
 
                 <p class="mb-3"><span class="rounded px-2 py-1 bg-danger text-white">+88 01956-667775</span></p>

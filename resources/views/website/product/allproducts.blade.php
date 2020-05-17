@@ -16,13 +16,7 @@
                             <div class="d-md-flex">
                                 <div>
                                     <h5 class="product_name text-dark mb-0">
-                                        @if($product->product_type == 'mango')
-                                            আম
-                                        @elseif($product->product_type == 'lichi')
-                                            লিচু
-                                        @elseif($product->product_type == 'vegitables')
-                                            শাক-সবজি
-                                        @endif
+                                        {{$product->product_type}}
                                     </h5>
                                     <p class="mb-0"><span class="text-dark">জাতঃ</span> {{$product->category}}</p>
                                 </div>
@@ -32,7 +26,15 @@
                             </div>
                                 
                                 
-                            <h6 class="product_details mt-2 mb-0 text-primary">৳ {{$product->price_per_unit}}.00 প্রতি ইউনিট</h6>
+                            <h6 class="product_details mt-2 mb-0 text-primary">৳ {{$product->price_per_unit}}.00 
+                                @if($product->product_type == 'আম')
+                                    প্রতি মণ
+                                @elseif($product->product_type == 'লিচু')
+                                    প্রতি হাজার
+                                @elseif($product->product_type == 'শাক-সবজি')
+                                    প্রতি ইউনিট
+                                @endif
+                            </h6>
                             <small class="text-danger">স্টক {{$product->stock_quantity}} পিস</small>
                         </div>
                     </div>

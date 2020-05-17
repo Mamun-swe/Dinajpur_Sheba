@@ -8,14 +8,17 @@
             <div class="col-12 mb-4">
                 <div class="card border-0 rounded-0 shadow-sm">
                     <div class="card-body px-3 py-2">
-                        <div class="d-flex">
-                            <div>
-                                <h5 class="mb-0 mt-2"><b>আমাদের পণ্যসমূহ</b></h5>
+                        <form action="{{route('buyer.search')}}" method="post">
+                            @csrf
+                            <div class="input-group mb-2">
+                                <input type="text" name="search_data" class="form-control rounded-0 shadow-none" placeholder="পণ্য খুঁজুন">
+                                <div class="input-group-prepend p-0">
+                                    <div class="input-group-text p-0 border-0">
+                                        <button type="submit" class="btn btn-sm btn-danger rounded-0 shadow-sm text-white px-4 py-2">খুঁজুন</button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="ml-auto">
-                                <button type="button" class="btn btn-sm btn-danger rounded-0 shadow-sm text-white px-4 py-2">সব গুলো</button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -42,9 +45,7 @@
                                 <div class="d-md-flex">
                                     <div>
                                         <h5 class="product_name text-dark mb-0">
-                                            @if($lichi->product_type == 'lichi')
-                                                লিচু
-                                            @endif
+                                            {{$lichi->product_type}}
                                         </h5>
                                         <p class="mb-0"><span class="text-dark">জাতঃ</span> {{$lichi->category}}</p>
                                     </div>
@@ -54,7 +55,12 @@
                                 </div>
                                 
                                 
-                                <h6 class="product_details mt-2 mb-0 text-primary">৳ {{$lichi->price_per_unit}}.00 প্রতি ইউনিট</h6>
+                                <h6 class="product_details mt-2 mb-0 text-primary">
+                                    ৳ {{$lichi->price_per_unit}}.00 
+                                    @if($lichi->product_type == 'লিচু')
+                                        প্রতি হাজার
+                                    @endif
+                                    </h6>
                                 <small class="text-danger">স্টক {{$lichi->stock_quantity}} পিস</small>
                             </div>
                         </div>
@@ -64,7 +70,7 @@
             </div>
             <div class="row">
                 <div class="col-12 text-center mb-3">
-                    <a href="{{route('buyer.productall', 'lichi')}}" class="btn btn-success text-white shadow-none">লিচু আরো দেখুন</a>
+                    <a href="{{route('buyer.productall', 'লিচু')}}" class="btn btn-success text-white shadow-none">লিচু আরো দেখুন</a>
                 </div>
             </div>
 
@@ -87,9 +93,7 @@
                                 <div class="d-md-flex">
                                     <div>
                                         <h5 class="product_name text-dark mb-0">
-                                            @if($mango->product_type == 'mango')
-                                                আম
-                                            @endif
+                                            {{$mango->product_type}}
                                         </h5>
                                         <p class="mb-0"><span class="text-dark">জাতঃ</span> {{$mango->category}}</p>
                                     </div>
@@ -99,7 +103,12 @@
                                 </div>
                                 
                                 
-                                <h6 class="product_details mt-2 mb-0 text-primary">৳ {{$mango->price_per_unit}}.00 প্রতি ইউনিট</h6>
+                                <h6 class="product_details mt-2 mb-0 text-primary">
+                                    ৳ {{$mango->price_per_unit}}.00
+                                    @if($mango->product_type == 'আম')
+                                        প্রতি মণ
+                                    @endif
+                                    </h6>
                                 <small class="text-danger">স্টক {{$mango->stock_quantity}} পিস</small>
                             </div>
                         </div>
@@ -110,7 +119,7 @@
 
             <div class="row">
                 <div class="col-12 text-center mb-3">
-                    <a href="{{route('buyer.productall', 'mango')}}" class="btn btn-success text-white shadow-none">আম আরো দেখুন</a>
+                    <a href="{{route('buyer.productall', 'আম')}}" class="btn btn-success text-white shadow-none">আম আরো দেখুন</a>
                 </div>
             </div>
 
@@ -132,9 +141,7 @@
                                 <div class="d-md-flex">
                                     <div>
                                         <h5 class="product_name text-dark mb-0">
-                                            @if($vegitable->product_type == 'vegitables')
-                                                শাক-সবজি
-                                            @endif
+                                            {{$vegitable->product_type}}
                                         </h5>
                                         <p class="mb-0"><span class="text-dark">জাতঃ</span> {{$vegitable->category}}</p>
                                     </div>
@@ -154,7 +161,7 @@
             </div>
             <div class="row">
                 <div class="col-12 text-center mb-3">
-                    <a href="{{route('buyer.productall', 'vegitables')}}" class="btn btn-success text-white shadow-none">শাক-সবজি আরো দেখুন</a>
+                    <a href="{{route('buyer.productall', 'শাক-সবজি')}}" class="btn btn-success text-white shadow-none">শাক-সবজি আরো দেখুন</a>
                 </div>
             </div>
 

@@ -50,6 +50,7 @@ Route::group(['prefix'=>'buyer','as'=>'buyer.', 'middleware' => ['auth', 'buyer'
     Route::get('/product-single/{id}', 'WebsiteController@productShow')->name('product');
     Route::get('/checkout/{id}', 'WebsiteController@checkout')->name('checkout');
     Route::post('/order-submit', 'WebsiteController@orderSubmit')->name('ordersubmit');
+    Route::post('/search', 'WebsiteController@searchProduct')->name('search');
 
     Route::get('/account', 'User\AccountController@Account')->name('account');
     Route::put('/account', 'User\AccountController@Update')->name('account');

@@ -14,9 +14,9 @@ class WebsiteController extends Controller
     }
 
     public function products(){
-        $lichiall = Product::where('status', '=', 1)->where('product_type', '=', 'lichi')->orderBy('id', 'DESC')->take(3)->get();
-        $mangoall = Product::where('status', '=', 1)->where('product_type', '=', 'mango')->orderBy('id', 'DESC')->take(3)->get();
-        $vegitableall = Product::where('status', '=', 1)->where('product_type', '=', 'vegitables')->orderBy('id', 'DESC')->take(3)->get();
+        $lichiall = Product::where('status', '=', 1)->where('product_type', '=', 'লিচু')->orderBy('id', 'DESC')->take(3)->get();
+        $mangoall = Product::where('status', '=', 1)->where('product_type', '=', 'আম')->orderBy('id', 'DESC')->take(3)->get();
+        $vegitableall = Product::where('status', '=', 1)->where('product_type', '=', 'শাক-সবজি')->orderBy('id', 'DESC')->take(3)->get();
         return view('website.product.index', compact('lichiall', 'mangoall', 'vegitableall'));
     }
 
@@ -63,5 +63,14 @@ class WebsiteController extends Controller
 
         Order::create($form_data);
         return redirect()->back()->with('success', 'আপনার অর্ডার করা সম্পন্ন হয়েছে ।');
+    }
+
+
+    public function searchProduct(Request $request) {
+        $searchData = $request->search_data;
+        $data = Product::where('product_type', 'like', '%' . $searchData . '%')
+            ->orWhere('category', 'like', '%' . $searchData . '%')
+            ->where('status', '=', 1)->get();
+        return view('website.search.index', compact('data'));
     }
 }

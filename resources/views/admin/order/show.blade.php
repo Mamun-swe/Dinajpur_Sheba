@@ -45,7 +45,7 @@
                         <table class="table table-sm table-bordered">
                             <tr>
                                 <td><p class="text-dark mb-0">Product Name</td>
-                                <td><p class="text-dark mb-0">{{$product->product_type_name}}</td>
+                                <td><p class="text-dark mb-0">{{$product->product_type}}</td>
                             </tr>
                             <tr>
                                 <td><p class="text-dark mb-0">Seller Name</td>
@@ -78,8 +78,10 @@
                                     @csrf
                                     @method('PUT')
                                     <input type="hidden" name="order_id" value="{{$order_id}}">
-                                    <button type="submit" class="btn btn-success text-white rounded-0 shadow-none px-4">Approve</button>
-                                    <button type="button" id="printTable" class="btn btn-primary text-white rounded-0 shadow-none px-4">Print</button>
+                                    @if($order->status == 'pending')
+                                        <button type="submit" class="btn btn-success text-white rounded-0 shadow-none px-4">Approve</button>
+                                    @endif
+                                    <button type="button" id="doPrint" class="btn btn-primary text-white rounded-0 shadow-none px-4">Print</button>
                                 </form>
                             </div>
                         </div>
@@ -99,7 +101,7 @@
         newWin.close();
     }
 
-    $('button').on('click',function(){
+    $('#doPrint').on('click',function(){
         printData();
     })
 </script>
