@@ -20,7 +20,9 @@
     <div id="app">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-white px-lg-5 fixed-top shadow-sm">
-            <a class="navbar-brand" href="{{route('buyer.products')}}"><b>দিনাজপুর সেবা</b></a>
+            <a class="navbar-brand" href="{{route('buyer.products')}}">
+                <img src="{{asset('images/static/logo1.png')}}" class="img-fluid">
+            </a>
             <button class="navbar-toggler shadow-none rounded-0" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -48,6 +50,10 @@
                 </ul>
             </div>
         </nav>
+
+        <a href="{{ url()->previous() }}" class="btn btn-info rounded-circle text-white back-btn"><i class="fas fa-chevron-left"></i></a>
+
+        
 
         <main class="main">
             @yield('content')

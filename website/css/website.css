@@ -127,24 +127,18 @@
     background: rgba(0, 0, 0, 0.575);
 }
 
-.footer h4 {
-    font-weight: 900;
-    font-family: 'Anton', sans-serif;
+.footer .logo3 {
+    height: 160px;
 }
 
 .footer a {
     color: #fff;
-    font-size: 18px;
-    padding: 8px 16px;
-    border: 1px solid #77b122;
-    border-radius: 25px;
+    font-size: 16px;
     transition: 0.3s;
 }
 
 .footer a:hover {
     color: #77b122;
-    background: #fff;
-    border: 1px solid #fff;
 }
 
 /* End Footer */

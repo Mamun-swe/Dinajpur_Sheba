@@ -25,7 +25,7 @@ class AuthController extends Controller
 
 
     public function registration(Request $request){
-          $rules = [
+        $rules = [
             'name' => 'required|string|max:255',
             'phone' => 'required|unique:users|regex:/(01)[0-9]{9}/',
             'password' => 'required|string|min:8|confirmed',
@@ -77,6 +77,26 @@ class AuthController extends Controller
 
     public function resetView(){
         return view('website.auth.reset');
+    }
+
+    public function resetPass(Request $request){
+        $rules = [
+            'phone' => 'required|regex:/(01)[0-9]{9}/',
+            'password' => 'required|string|min:8',
+        ];
+        $this->validate($request,$rules);
+
+        $form_data = array(
+            'password' => Hash::make($request['password']),
+        );
+
+        $user = User::where('phone', '=', $request->phone)->first();
+        if($user){
+            User::where('phone', '=', $request->phone)->update($form_data);
+            return redirect()->back()->with('success', 'পাসওয়ার্ড পরিবর্তন হয়েছে ।');
+        }else{
+            return redirect()->back()->with('error', 'মোবাইল নাম্বার সঠিক নয় ।');
+        }
     }
 
     public function logout(Request $request){

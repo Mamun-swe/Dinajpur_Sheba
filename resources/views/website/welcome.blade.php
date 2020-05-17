@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex">
-                        <div><img src="{{asset('images/static/logo.png')}}" class="img-fluid"></div>
+                        <div><img src="{{asset('images/static/logo1.png')}}" class="img-fluid"></div>
                         <div class="ml-auto">
                             <ul class="d-none d-lg-block">
                                 <li><a href="">হোম</a></li>
@@ -206,20 +206,20 @@
           <div class="row">
               <div class="col-12 col-lg-4 text-center">
                     <img src="{{asset('images/static/logo2.png')}}" class="img-fluid mb-4">
-                    <img src="{{asset('images/static/logo3.png')}}" class="img-fluid mb-4">
+                    <img src="{{asset('images/static/logo3.png')}}" class="img-fluid mb-4 logo3">
               </div>
               <div class="col-12 col-lg-4 pl-lg-5">
-                  <h4 class="text-dark bg-white p-3 mb-4">যোগাযোগ করুন</h4>
-                  <div class="p-4 bg-white">
-                      <p class="mb-0"><b>Cell: </b>+88 01956667775</p>
-                      <p class="mb-2"><b>Cell: </b>+88 01684215160</p>
-                      <p class="mb-0"><b>Facebook: </b>facebook.com</p>
-                      <p class="mb-2"><b>email: </b>email.com</p>
-                      <h5 class="mb-0"><b>Address: </b> Birol, Dinajpur, Rangpur, Rajshahi, Bangladesh</h5>
+                  <h4 class="text-dark bg-white px-3 py-2 mb-4">যোগাযোগ করুন</h4>
+                  <div class="p-4">
+                      <p class="text-white mb-0">Cell: +88 01956667775</p>
+                      <p class="text-white mb-2">Cell: +88 01684215160</p>
+                      <p class="text-white mb-0">Facebook: <a target="_blank" href="https://www.facebook.com/Dinajpur-Sheba-113868520314939">facebook.com</a></p>
+                      <p class="text-white mb-2">Email: <a href="mailto:info@dinajpursheba.com">info@dinajpursheba.com</a></p>
+                      <h5 class="text-white mb-0">Address: <br> Birol, Dinajpur, Rangpur, Rajshahi, Bangladesh</h5>
                   </div>
               </div>
               <div class="col-12 col-lg-4 pl-lg-5">
-                  <h4 class="text-dark bg-white p-3 mb-4">আমাদের অবস্থান</h4>
+                  <h4 class="text-dark bg-white px-3 py-2 mb-4">আমাদের অবস্থান</h4>
                   <img src="{{asset('images/static/map.png')}}" class="img-fluid w-100">
               </div>
           </div>
@@ -227,6 +227,13 @@
   </div>
 </div>
 <!-- End Footer -->
+
+<!-- Company Footer -->
+<div class="company-footer p-3 text-center">
+  <p class="mb-0">&copy;2020 DinajpurSheba, All rights reserved by <a href="https://www.facebook.com/Biral-Academy-of-Sciences-BAS-414140305387301/">Biral Academy of Sciences</a> </p>
+  <p class="mb-0">Developed By <a href="http://madthrone.com/">MadThrone</a></p>
+</div>
+<!-- End Company Footer -->
 
 
 <script>

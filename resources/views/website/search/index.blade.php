@@ -5,7 +5,7 @@
     @if(count($data) > 0)
 
     <div class="container py-4">
-    <div class="row">
+            <div class="row">
                 @foreach($data as $product)
                 <div class="col-6 col-md-4 product_card mb-4">
                     <a href="{{route('buyer.product', $product->id)}}">
@@ -25,7 +25,6 @@
                                         <p class="mb-0"><span class="rounded px-2 py-1 bg-danger text-white">পণ্যের কোডঃ {{$product->id}}</span></p>
                                     </div>
                                 </div>
-                                
                                 
                                 <h6 class="product_details mt-2 mb-0 text-primary">
                                     ৳ {{$product->price_per_unit}}.00 

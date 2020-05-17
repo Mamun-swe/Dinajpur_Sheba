@@ -20,6 +20,7 @@ Route::post('/register', 'AuthController@registration')->name('registration');
 Route::get('/login', 'AuthController@loginView')->name('login');
 Route::post('/login', 'AuthController@login')->name('login');
 Route::get('/reset', 'AuthController@resetView')->name('reset');
+Route::put('/reset', 'AuthController@resetPass')->name('reset.update');
 
 Route::post('/logout', 'AuthController@logout')->name('logout');
 

@@ -124,6 +124,14 @@
 
 /* Checkout */
 
+.back-btn{
+    position: fixed;
+    left: 50px;
+    bottom: 50px;
+    z-index: 99;
+    padding: 8px 15px;
+}
+
 .flex-center {
     display: -webkit-box;
     display: -ms-flexbox;

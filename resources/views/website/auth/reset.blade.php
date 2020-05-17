@@ -15,17 +15,32 @@
                         </div>
                     </div>
                     <div class="card-body pb-5">
-                        <form action="" method="post">
+                        @if(count($errors) > 0)
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li class="text-danger">{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        @endif
+                        @if(Session::has('success'))
+                            <p class="text-success">{{Session::get('success')}}</p>
+                        @endif
+                        @if(Session::has('error'))
+                            <p class="text-danger">{{Session::get('error')}}</p>
+                        @endif
+                        <form action="{{route('reset.update')}}" method="post">
+                            @csrf
+                            @method('PUT')
                             <!-- Phone -->
                             <div class="form-group mb-4">
                                 <p class="mb-2"><i class="fas fa-phone mr-2"></i>মোবাইল</p>
-                                <input type="text" class="form-control rounded-0 shadow-none" placeholder="মোবাইল নাম্বার লিখুন">
+                                <input type="text" name="phone" class="form-control rounded-0 shadow-none" placeholder="মোবাইল নাম্বার লিখুন">
                             </div>
 
                             <!-- Password -->
                             <div class="form-group mb-4">
                                 <p class="mb-2"><i class="fas fa-key mr-2"></i>নতুন পাসওয়ার্ড</p>
-                                <input type="password" class="form-control rounded-0 shadow-none" placeholder="নতুন পাসওয়ার্ড লিখুন">
+                                <input type="password" name="password" class="form-control rounded-0 shadow-none" placeholder="নতুন পাসওয়ার্ড লিখুন">
                             </div>
 
                             <button type="submit" class="btn btn-block rounded-0 shadow text-white">সাবমিট করুন</button>
