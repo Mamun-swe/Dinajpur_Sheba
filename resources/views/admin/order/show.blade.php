@@ -2,7 +2,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="order-show">
+<div class="order-show" id="printTable">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -79,6 +79,7 @@
                                     @method('PUT')
                                     <input type="hidden" name="order_id" value="{{$order_id}}">
                                     <button type="submit" class="btn btn-success text-white rounded-0 shadow-none px-4">Approve</button>
+                                    <button type="button" id="printTable" class="btn btn-primary text-white rounded-0 shadow-none px-4">Print</button>
                                 </form>
                             </div>
                         </div>
@@ -88,6 +89,20 @@
         </div>
     </div>
 </div>
+
+<script>
+    function printData(){
+        var divToPrint=document.getElementById("printTable");
+        newWin= window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+    }
+
+    $('button').on('click',function(){
+        printData();
+    })
+</script>
 
 
 @endsection

@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->bigInteger('productid');
             $table->string('name');
             $table->string('phone');
+            $table->string('nid');
             $table->text('location');
             $table->text('carinfo');
             $table->string('payment_method');

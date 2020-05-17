@@ -29,7 +29,6 @@ class AdminController extends Controller
         $order_id = $id;
         $order = Order::where('id', '=', $id)->first();
         $product = Product::join('orders', 'orders.productid', '=', 'products.id')
-                    ->join('product_types', 'product_types.id', '=', 'products.product_type_id')
                     ->join('sellers', 'sellers.id', '=', 'products.seller_id')
                     ->where('orders.id', '=', $id)
                     ->first();

@@ -81,7 +81,7 @@
             </div>
             <div class="col-12 col-lg-4 py-4">
                 <p class="mb-3"><span class="rounded px-2 py-1 bg-danger text-white">পণ্যের কোডঃ {{$data->id}}</span></p>
-                <h6><b>পণ্যের ধরণ 
+                <h6 class="mb-2"><b>পণ্যের ধরণ 
                 @if($data->product_type == 'mango')
                     আম
                 @elseif($data->product_type == 'lichi')
@@ -89,6 +89,7 @@
                 @elseif($data->product_type == 'vegitables')
                     শাক-সবজি
                 @endif
+                <p class="mb-0"><span class="text-dark">পণ্যের জাতঃ</span> {{$data->category}}</p>
                 </b></h6>
                 <p class="text-primary mb-1">৳ {{$data->price_per_unit}}.00 প্রতি ইউনিট</p>
                 <p class="text-danger mb-3">স্টক {{$data->stock_quantity}} পিস</p>

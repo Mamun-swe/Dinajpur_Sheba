@@ -41,11 +41,12 @@
                             <div class="card-body">
                                 <div class="d-md-flex">
                                     <div>
-                                        <h5 class="product_name text-dark">
+                                        <h5 class="product_name text-dark mb-0">
                                             @if($lichi->product_type == 'lichi')
                                                 লিচু
                                             @endif
                                         </h5>
+                                        <p class="mb-0"><span class="text-dark">জাতঃ</span> {{$lichi->category}}</p>
                                     </div>
                                     <div class="ml-auto">
                                         <p class="mb-0"><span class="rounded px-2 py-1 bg-danger text-white">পণ্যের কোডঃ {{$lichi->id}}</span></p>
@@ -63,7 +64,7 @@
             </div>
             <div class="row">
                 <div class="col-12 text-center mb-3">
-                    <a href="" class="btn btn-success text-white shadow-none">লিচু আরো দেখুন</a>
+                    <a href="{{route('buyer.productall', 'lichi')}}" class="btn btn-success text-white shadow-none">লিচু আরো দেখুন</a>
                 </div>
             </div>
 
@@ -85,11 +86,12 @@
                             <div class="card-body">
                                 <div class="d-md-flex">
                                     <div>
-                                        <h5 class="product_name text-dark">
+                                        <h5 class="product_name text-dark mb-0">
                                             @if($mango->product_type == 'mango')
                                                 আম
                                             @endif
                                         </h5>
+                                        <p class="mb-0"><span class="text-dark">জাতঃ</span> {{$mango->category}}</p>
                                     </div>
                                     <div class="ml-auto">
                                         <p class="mb-0"><span class="rounded px-2 py-1 bg-danger text-white">পণ্যের কোডঃ {{$mango->id}}</span></p>
@@ -108,7 +110,7 @@
 
             <div class="row">
                 <div class="col-12 text-center mb-3">
-                    <a href="" class="btn btn-success text-white shadow-none">আম আরো দেখুন</a>
+                    <a href="{{route('buyer.productall', 'mango')}}" class="btn btn-success text-white shadow-none">আম আরো দেখুন</a>
                 </div>
             </div>
 
@@ -129,11 +131,12 @@
                             <div class="card-body">
                                 <div class="d-md-flex">
                                     <div>
-                                        <h5 class="product_name text-dark">
+                                        <h5 class="product_name text-dark mb-0">
                                             @if($vegitable->product_type == 'vegitables')
                                                 শাক-সবজি
                                             @endif
                                         </h5>
+                                        <p class="mb-0"><span class="text-dark">জাতঃ</span> {{$vegitable->category}}</p>
                                     </div>
                                     <div class="ml-auto">
                                         <p class="mb-0"><span class="rounded px-2 py-1 bg-danger text-white">পণ্যের কোডঃ {{$vegitable->id}}</span></p>
@@ -151,7 +154,7 @@
             </div>
             <div class="row">
                 <div class="col-12 text-center mb-3">
-                    <a href="" class="btn btn-success text-white shadow-none">শাক-সবজি আরো দেখুন</a>
+                    <a href="{{route('buyer.productall', 'vegitables')}}" class="btn btn-success text-white shadow-none">শাক-সবজি আরো দেখুন</a>
                 </div>
             </div>
 

@@ -11,7 +11,14 @@
                     </div>
                     <div class="card-body">
                         @if(Session::has('success'))
-                            <p class="text-success">{{Session::get('success')}}</p>
+                        <div class="custom-modal">
+                            <div class="flex-center flex-column text-center">
+                                <i class="far fa-check-circle fa-2x text-white mb-3"></i>
+                                <h5 class="text-white">অর্ডার সফল হয়েছে</h5>
+                                <p class="text-white">আমরা আপনাকে মোবাইলে কলের মাধ্যমে বিস্তারিত জানাব, ধন্যবাদ ।</p>
+                                <a href="{{route('buyer.products')}}" class="btn btn-warning text-dark px-4">ফিরে যান</a>
+                            </div>
+                        </div>
                         @endif
                         <form action="{{route('buyer.ordersubmit')}}" method="post">
                             @csrf
@@ -35,6 +42,16 @@
                                 @endif
                                 <small class="text-dark"></small>
                                 <input type="text" name="phone" class="form-control rounded-0 shadow-none" value="{{Auth()->User()->phone}}">
+                            </div>
+
+                            <div class="form-group mb-3">
+                                @if($errors->has('nid'))
+                                    <small class="text-danger">ভোটার আইডি নং প্রয়োজন</small>
+                                @else 
+                                    <small class="text-dark">ভোটার আইডি নং</small>
+                                @endif
+                                <small class="text-dark"></small>
+                                <input type="text" name="nid" class="form-control rounded-0 shadow-none" placeholder="ভোটার আইডি নং লিখুন">
                             </div>
 
                             <div class="form-group mb-3">
@@ -91,15 +108,18 @@
                                 </div>
                             </div>
 
-                            
-
                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    
+
 </div>
+
 
 <script>
     $(document).ready(function(){

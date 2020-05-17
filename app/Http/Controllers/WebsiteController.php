@@ -20,6 +20,11 @@ class WebsiteController extends Controller
         return view('website.product.index', compact('lichiall', 'mangoall', 'vegitableall'));
     }
 
+    public function allProducts($productType){
+        $productAll = Product::where('status', '=', 1)->where('product_type', '=', $productType)->orderBy('id', 'DESC')->paginate(30);
+        return view('website.product.allproducts', compact('productAll'));
+    }
+
     public function productShow($id){
         $data = Product::where('products.id', '=', $id)->first();
         return view('website.product.show', compact('data'));
@@ -35,6 +40,7 @@ class WebsiteController extends Controller
         $rules = [
             'name' => 'required',
             'phone' => 'required',
+            'nid' => 'required',
             'location' => 'required',
             'carinfo' => 'required',
             'payment_method' => 'required',
@@ -47,6 +53,7 @@ class WebsiteController extends Controller
             'productid' => $request->productid,
             'name' => $request->name,
             'phone' => $request->phone,
+            'nid' => $request->nid,
             'location' => $request->location,
             'carinfo' => $request->carinfo,
             'payment_method' => $request->payment_method,

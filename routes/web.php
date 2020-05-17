@@ -46,6 +46,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.', 'middleware' => ['auth', 'admin'
 // Buyer Routes
 Route::group(['prefix'=>'buyer','as'=>'buyer.', 'middleware' => ['auth', 'buyer']], function () {
     Route::get('/products', 'WebsiteController@products')->name('products');
+    Route::get('/products-all/{productType}', 'WebsiteController@allProducts')->name('productall');
     Route::get('/product-single/{id}', 'WebsiteController@productShow')->name('product');
     Route::get('/checkout/{id}', 'WebsiteController@checkout')->name('checkout');
     Route::post('/order-submit', 'WebsiteController@orderSubmit')->name('ordersubmit');
